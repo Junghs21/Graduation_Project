@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package message;
+
+service grpcService{
+ rpc sendState(SelectedStates) returns (GlobalState) {}   //가중치 전송
+ rpc valSetup(clientInformation) returns (EmptyResponse) {}   //학습 데이터셋 준비
+ rpc getGlobalModel(EmptyResponse) returns (GlobalState) {}   //aggregation된 globalWeight 전송
+}
+
+message clientInformation {
+  string data = 1; 
+  int32 n_class = 2;
+  string model_name = 3;
+}
+
+message EmptyResponse {
+  string message = 1;
+}
+
+message SelectedStates {
+  bytes state = 1;
+  string setting = 2;
+  bytes weights = 3;
+  int32 drop = 4;
+}
+
+message GlobalState {
+  bytes state = 1;
+  float loss = 2;
+  float accuracy = 3;
+  float mae = 4;
+  float mse = 5;
+  float rse = 6;
+  float rmse = 7;
+}
