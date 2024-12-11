@@ -1,2 +1,3 @@
 # Graduation_Project
-2024년 2학기 경희대학교 졸업프로젝트 Repo
+KyungHee University Graduation Project for the 2nd Semester of 2024
+2021110196 컴퓨터공학과 정현석
